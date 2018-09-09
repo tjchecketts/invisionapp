@@ -3,14 +3,20 @@ import { Message } from 'semantic-ui-react'
 
 class MessageComponent extends Component {
   render() {
+    const { activeTab } = this.props
+
+    const buttonCode = (
+      <div className="round">
+        <input type="checkbox" id="checkbox" />
+        <label htmlFor="checkbox"></label>
+      </div>
+    )
+
     return (
       <Message>
-        <Message.Header>{this.props.boldSection}</Message.Header>
-        <p>{this.props.moreContent}</p>
-        <div className="round">
-          <input type="checkbox" id="checkbox" />
-          <label htmlFor="checkbox"></label>
-        </div>
+        <Message.Header>{activeTab === "info" ? this.props.infoTitle : this.props.messageTitle}</Message.Header>
+        <p>{activeTab === "info" ? this.props.infoBody : this.props.messageBody}</p>
+        {activeTab === "info" ? null : buttonCode}
       </Message>
     )
   }

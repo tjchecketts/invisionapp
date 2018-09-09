@@ -2,24 +2,20 @@ import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 
 class MenuComponent extends Component {
-  state = { activeItem: 'info' }
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
   render() {
-    const { activeItem } = this.state
+    const { activeTab, handleTabClick } = this.props
 
     return (
       <Menu inverted pointing secondary>
         <Menu.Item
           name='info'
-          active={activeItem === 'info'}
-          onClick={this.handleItemClick}
+          active={activeTab === 'info'}
+          onClick={handleTabClick}
         />
         <Menu.Item
           name='tickets'
-          active={activeItem === 'tickets'}
-          onClick={this.handleItemClick}
+          active={activeTab === 'tickets'}
+          onClick={handleTabClick}
         />
       </Menu>
     )
