@@ -3,11 +3,11 @@ import { Message } from 'semantic-ui-react'
 
 class MessageComponent extends Component {
   render() {
-    const { activeTab } = this.props
+    const { activeTab, buttonClicked } = this.props
 
     const buttonCode = (
       <div className="round">
-        <input type="checkbox" id="checkbox" />
+        <input type="checkbox" id="checkbox" onClick={buttonClicked}/>
         <label htmlFor="checkbox"></label>
       </div>
     )
